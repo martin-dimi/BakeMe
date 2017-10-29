@@ -1,5 +1,6 @@
 package com.niquid.personal.bakeme.backgroud;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class FetchRecipes implements LoaderManager.LoaderCallbacks<String> {
             manager.restartLoader(FETCH_ONLINE_RECIPES, null, this);
     }
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     public Loader<String> onCreateLoader(int id, Bundle args) {
         return new AsyncTaskLoader<String>(context) {

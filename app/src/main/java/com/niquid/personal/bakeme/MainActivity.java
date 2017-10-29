@@ -7,15 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.niquid.personal.bakeme.backgroud.FetchRecipes;
-import com.niquid.personal.bakeme.utils.NetworkUtils;
+import com.niquid.personal.bakeme.models.Recipe;
 
+import com.niquid.personal.bakeme.utils.JSONUtils;
 import timber.log.Timber;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String RECIPES_JSON = "recipes";
 
     private String recipesJson;
+    private List<Recipe> recipes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Timber.plant(new Timber.DebugTree());
 
+        getRecipes();
+    }
+
+    private void getRecipes() {
         FetchRecipes fetchRecipes = new FetchRecipes(this, getSupportLoaderManager(), new OnRecipesTaskFinished());
         fetchRecipes.fetchRecipes();
+        recipes = JSONUtils.getRecipesFromJSON(recipesJson);
     }
 
     public class OnRecipesTaskFinished implements FetchRecipes.OnTaskFinished{
