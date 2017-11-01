@@ -8,12 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="cv_text">
-        <item name="android:textSize">24sp</item>
+    <style name="cv_title">
+        <item name="android:textSize">26sp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:paddingBottom">24dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="cv_secondary">
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>
