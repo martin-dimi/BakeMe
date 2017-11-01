@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BakeMe</string>
+    <string name="difficulty">Recipe difficulty level</string>
 </resources>

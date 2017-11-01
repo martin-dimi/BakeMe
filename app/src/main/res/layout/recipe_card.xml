@@ -9,44 +9,115 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/cardBackground">
+
 
         <TextView
             android:id="@+id/cv_recipe_title"
             style="@style/cv_title"
-            android:layout_width="209dp"
-            android:layout_height="79dp"
-            android:layout_marginStart="88dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Nutella Pie" />
 
-        <TextView
-            android:id="@+id/cv_recipe_level"
-            style="@style/cv_secondary"
-            android:layout_width="118dp"
-            android:layout_height="26dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="98dp"
-            tools:text="Medium" />
+        <View
+            android:id="@+id/cv_recipe_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_title" />
 
-        <TextView
-            android:id="@+id/cv_recipe_ingredients"
-            style="@style/cv_secondary"
-            android:layout_width="118dp"
-            android:layout_height="26dp"
-            tools:layout_editor_absoluteX="276dp"
-            tools:layout_editor_absoluteY="98dp"
-            tools:text="12 ingredients" />
+        <View
+            android:id="@+id/cv_recipe_divider2"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider" />
+
+        <View
+            android:id="@+id/cv_recipe_divider3"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.66"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/cv_recipe_divider4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="80dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_title" />
+
+
+        <ImageView
+            android:id="@+id/cv_recipe_level"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/difficulty"
+            android:src="@drawable/hard"
+            app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
+            app:layout_constraintEnd_toStartOf="@+id/cv_recipe_divider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider" />
 
         <TextView
             android:id="@+id/cv_recipe_servings"
+            style="@style/cv_measurement"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cv_recipe_divider3"
+            app:layout_constraintHorizontal_bias="0.522"
+            app:layout_constraintStart_toEndOf="@+id/cv_recipe_divider2"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider"
+            app:layout_constraintVertical_bias="0.341"
+            tools:text="12" />
+
+        <TextView
+            android:id="@+id/cv_recipe_servings_text"
             style="@style/cv_secondary"
-            android:layout_width="118dp"
-            android:layout_height="26dp"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="98dp"
-            tools:text="8 servings" />
+            app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
+            app:layout_constraintEnd_toEndOf="@+id/cv_recipe_servings"
+            app:layout_constraintStart_toStartOf="@+id/cv_recipe_servings"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_servings"
+            tools:text="ingredients" />
+
+        <TextView
+            android:id="@+id/cv_recipe_ingredients"
+            style="@style/cv_measurement"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toEndOf="@+id/cv_recipe_divider3"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider"
+            app:layout_constraintVertical_bias="0.311"
+            tools:text="8" />
+
+        <TextView
+            android:id="@+id/cv_recipe_ingredients_text"
+            style="@style/cv_secondary"
+            app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
+            app:layout_constraintEnd_toEndOf="@+id/cv_recipe_ingredients"
+            app:layout_constraintStart_toStartOf="@+id/cv_recipe_ingredients"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_ingredients"
+            tools:text="servings" />
 
     </android.support.constraint.ConstraintLayout>
 
