@@ -1,11 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="cv_title">
@@ -32,6 +33,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">casual</item>
         <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="toolbarExpandedText" parent="android:TextAppearance">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">40sp</item>
     </style>
 
 </resources>

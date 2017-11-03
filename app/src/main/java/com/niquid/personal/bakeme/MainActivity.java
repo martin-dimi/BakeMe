@@ -3,8 +3,11 @@ package com.niquid.personal.bakeme;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.niquid.personal.bakeme.backgroud.FetchRecipes;
 import com.niquid.personal.bakeme.models.Recipe;
@@ -27,8 +30,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Timber.plant(new Timber.DebugTree());
 
+
+
         getRecipes();
     }
+
+
 
     private void getRecipes() {
         FetchRecipes fetchRecipes = new FetchRecipes(this, getSupportLoaderManager(), new OnRecipesTaskFinished());

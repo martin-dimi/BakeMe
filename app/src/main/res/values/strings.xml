@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">BakeMe</string>
     <string name="difficulty">Recipe difficulty level</string>
+    <string name="bake_with_me">Bake with me</string>
+    <string name="best_of_android">best of android</string>
 </resources>
