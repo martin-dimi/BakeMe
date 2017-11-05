@@ -31,8 +31,11 @@ public class JSONUtils {
 
     public static List<Recipe> getRecipesFromJSON(String json) {
 
-        if (json == null || json.length() == 0)
+
+        if (json == null || json.length() == 0) {
+            Timber.e("Json file is null");
             return null;
+        }
 
         List<Recipe> recipes = new ArrayList<>();
         JSONArray recipesArray;
@@ -49,13 +52,14 @@ public class JSONUtils {
                 List<Ingredient> ingredients = getIngredients(rec);
                 List<Step> steps = getSteps(rec);
                 int servings = rec.getInt(SERVINGS);
-                String image = rec.getString(IMAGE);
+                String image = "";
 
                 Recipe recipe = new Recipe(id, name, ingredients, steps, servings, image);
                 recipes.add(recipe);
             }
         } catch (JSONException e) {
             Timber.e("Could't read json");
+            e.printStackTrace();
         }
         return recipes;
     }

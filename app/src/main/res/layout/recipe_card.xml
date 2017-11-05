@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
     android:layout_margin="3dp"
     app:cardElevation="5dp"
     app:cardCornerRadius="5dp">
@@ -62,7 +61,7 @@
             android:id="@+id/cv_recipe_divider4"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="90dp"
             android:background="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -72,24 +71,37 @@
 
         <ImageView
             android:id="@+id/cv_recipe_level"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:contentDescription="@string/difficulty"
             android:src="@drawable/hard"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
             app:layout_constraintEnd_toStartOf="@+id/cv_recipe_divider2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider" />
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <TextView
+            android:id="@+id/cv_recipe_level_text"
+            style="@style/cv_secondary"
+            android:layout_width="48dp"
+            android:text="@string/recipe_level"
+            app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
+            app:layout_constraintEnd_toEndOf="@+id/cv_recipe_level"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="@+id/cv_recipe_level"
+            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_level"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/cv_recipe_servings"
             style="@style/cv_measurement"
+            android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/cv_recipe_divider3"
-            app:layout_constraintHorizontal_bias="0.522"
             app:layout_constraintStart_toEndOf="@+id/cv_recipe_divider2"
             app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider"
-            app:layout_constraintVertical_bias="0.341"
+            app:layout_constraintVertical_bias="0.159"
             tools:text="12" />
 
         <TextView
@@ -99,17 +111,17 @@
             app:layout_constraintEnd_toEndOf="@+id/cv_recipe_servings"
             app:layout_constraintStart_toStartOf="@+id/cv_recipe_servings"
             app:layout_constraintTop_toBottomOf="@+id/cv_recipe_servings"
-            tools:text="ingredients" />
+            android:text="@string/recipe_ingredient" />
 
         <TextView
             android:id="@+id/cv_recipe_ingredients"
             style="@style/cv_measurement"
+            android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toEndOf="@+id/cv_recipe_divider3"
             app:layout_constraintTop_toBottomOf="@+id/cv_recipe_divider"
-            app:layout_constraintVertical_bias="0.311"
+            app:layout_constraintVertical_bias="0.159"
             tools:text="8" />
 
         <TextView
@@ -119,7 +131,7 @@
             app:layout_constraintEnd_toEndOf="@+id/cv_recipe_ingredients"
             app:layout_constraintStart_toStartOf="@+id/cv_recipe_ingredients"
             app:layout_constraintTop_toBottomOf="@+id/cv_recipe_ingredients"
-            tools:text="servings" />
+            android:text="@string/recipe_servings" />
 
     </android.support.constraint.ConstraintLayout>
 

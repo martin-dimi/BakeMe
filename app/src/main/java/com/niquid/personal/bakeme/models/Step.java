@@ -1,6 +1,8 @@
 package com.niquid.personal.bakeme.models;
 
+import org.parceler.Parcel;
 
+@Parcel
 public class Step {
 
     private int id;
@@ -9,7 +11,7 @@ public class Step {
     private String videoURL;
     private String thumbnailURL;
 
-    public Step() {
+    public Step() { //For parcel
     }
 
     public Step(int id, String shortDescription, String description, String videoURL, String thumbnailURL) {

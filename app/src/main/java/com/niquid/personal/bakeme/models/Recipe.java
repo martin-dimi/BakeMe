@@ -1,8 +1,10 @@
 package com.niquid.personal.bakeme.models;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
-
+@Parcel
 public class Recipe {
 
     private int id;
@@ -11,6 +13,10 @@ public class Recipe {
     private List<Step> steps;
     private int servings;
     private String image;
+
+
+    public Recipe() {   //For parcel
+    }
 
     public Recipe(int id, String name, List<Ingredient> ingredients, List<Step> steps, int servings, String image) {
         this.id = id;
@@ -39,5 +45,29 @@ public class Recipe {
 
     public int getServings() {
         return servings;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setSteps(List<Step> steps) {
+        this.steps = steps;
+    }
+
+    public void setServings(int servings) {
+        this.servings = servings;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

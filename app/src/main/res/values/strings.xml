@@ -3,4 +3,7 @@
     <string name="difficulty">Recipe difficulty level</string>
     <string name="bake_with_me">Bake with me</string>
     <string name="best_of_android">best of android</string>
+    <string name="recipe_ingredient">Ingredients</string>
+    <string name="recipe_servings">Servings</string>
+    <string name="recipe_level">Level</string>
 </resources>

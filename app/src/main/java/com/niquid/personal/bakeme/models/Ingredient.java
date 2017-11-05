@@ -1,11 +1,17 @@
 package com.niquid.personal.bakeme.models;
 
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Ingredient {
 
     private int quantity;
     private String measure;
     private String ingredient;
+
+    public Ingredient() {   //For parcel
+    }
 
     public Ingredient(int quantity, String measure, String ingredient) {
         this.quantity = quantity;

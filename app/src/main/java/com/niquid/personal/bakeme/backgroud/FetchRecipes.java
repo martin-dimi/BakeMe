@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
+import android.app.LoaderManager;
+import android.content.AsyncTaskLoader;
+import android.content.Loader;
 
 import com.niquid.personal.bakeme.utils.NetworkUtils;
 
@@ -72,6 +72,7 @@ public class FetchRecipes implements LoaderManager.LoaderCallbacks<String> {
     public void onLoadFinished(Loader<String> loader, String data) {
         onTaskFinished.onRecipesFetched(data, context);
     }
+
 
     @Override
     public void onLoaderReset(Loader<String> loader) {
