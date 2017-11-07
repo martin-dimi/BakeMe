@@ -6,27 +6,26 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="cv_title">
-        <item name="android:textSize">46sp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:fontFamily">cursive</item>
+    <!--Style for the toolbarText-->
+    <style name="toolbarTitle">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">@dimen/appbar_title_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">cursive</item>
     </style>
 
-    <style name="cv_measurement">
+    <!--Style for the cardView primary text-->
+    <style name="cv_primaryText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">@dimen/card_recipe_primary_textSize</item>
     </style>
 
-    <style name="cv_secondary">
+    <!--Style for the cardView helper text-->
+    <style name="cv_helperText">
         <item name="android:textSize">18sp</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
@@ -35,9 +34,12 @@
         <item name="android:textStyle">italic</item>
     </style>
 
-    <style name="toolbarExpandedText" parent="android:TextAppearance">
-        <item name="android:textColor">#fff</item>
-        <item name="android:textSize">40sp</item>
+    <!--Style for the ingredient_item text-->
+    <style name="ingredient_item_text">
+        <item name="android:layout_width"> wrap_content </item>
+        <item name="android:layout_height"> wrap_content </item>
+        <item name="android:fontFamily"> @font/oleo_script_swash_caps </item>
+        <item name="android:textSize">@dimen/ingredient_textSize</item>
     </style>
 
 </resources>

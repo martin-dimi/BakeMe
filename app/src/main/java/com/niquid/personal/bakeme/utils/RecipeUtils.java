@@ -7,6 +7,8 @@ import timber.log.Timber;
 
 public class RecipeUtils {
 
+    public static final String RECIPE_KEY = "recipe";
+
     private static final int THRESHOLD_MEDIUM = 18;
     private static final int THRESHOLD_HARD = 22;
 

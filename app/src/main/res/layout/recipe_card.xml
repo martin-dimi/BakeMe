@@ -16,9 +16,16 @@
 
         <TextView
             android:id="@+id/cv_recipe_title"
-            style="@style/cv_title"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/card_recipe_title_texiSize"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:paddingLeft="@dimen/card_recipe_title_paddingHorizontal"
+            android:paddingRight="@dimen/card_recipe_title_paddingHorizontal"
+            android:paddingTop="@dimen/card_recipe_title_paddingTop"
             android:background="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,8 +78,8 @@
 
         <ImageView
             android:id="@+id/cv_recipe_level"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/card_recipe_level_size"
+            android:layout_height="@dimen/card_recipe_level_size"
             android:contentDescription="@string/difficulty"
             android:src="@drawable/hard"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
@@ -83,7 +90,7 @@
 
         <TextView
             android:id="@+id/cv_recipe_level_text"
-            style="@style/cv_secondary"
+            style="@style/cv_helperText"
             android:layout_width="48dp"
             android:text="@string/recipe_level"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
@@ -95,8 +102,7 @@
 
         <TextView
             android:id="@+id/cv_recipe_servings"
-            style="@style/cv_measurement"
-            android:textSize="36sp"
+            style="@style/cv_primaryText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/cv_recipe_divider3"
             app:layout_constraintStart_toEndOf="@+id/cv_recipe_divider2"
@@ -106,7 +112,7 @@
 
         <TextView
             android:id="@+id/cv_recipe_servings_text"
-            style="@style/cv_secondary"
+            style="@style/cv_helperText"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
             app:layout_constraintEnd_toEndOf="@+id/cv_recipe_servings"
             app:layout_constraintStart_toStartOf="@+id/cv_recipe_servings"
@@ -115,8 +121,7 @@
 
         <TextView
             android:id="@+id/cv_recipe_ingredients"
-            style="@style/cv_measurement"
-            android:textSize="36sp"
+            style="@style/cv_primaryText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cv_recipe_divider3"
@@ -126,7 +131,7 @@
 
         <TextView
             android:id="@+id/cv_recipe_ingredients_text"
-            style="@style/cv_secondary"
+            style="@style/cv_helperText"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
             app:layout_constraintEnd_toEndOf="@+id/cv_recipe_ingredients"
             app:layout_constraintStart_toStartOf="@+id/cv_recipe_ingredients"

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="recipe_list_padding_bottom">20dp</dimen>
+
+    <!--Dimentions for the collapsing toolbar-->
+    <dimen name="appbar_subtitle_size">20sp</dimen>
+    <dimen name="appbar_height">250dp</dimen>
+    <dimen name="appbar_text_margin_top">10dp</dimen>
+    <dimen name="appbar_text_margin_right">10dp</dimen>
+    <dimen name="appbar_title_size">35sp</dimen>
+
+
+    <!--Dimentions for the cardView-->
+    <dimen name="card_recipe_title_texiSize">46sp</dimen>
+    <dimen name="card_recipe_title_paddingHorizontal">16dp</dimen>
+    <dimen name="card_recipe_title_paddingTop">8dp</dimen>
+    <dimen name="card_recipe_level_size">60dp</dimen>
+    <dimen name="card_recipe_helper_textSize">18sp</dimen>
+    <dimen name="card_recipe_primary_textSize">36sp</dimen>
+
+    <!--Dimentions for the ingredient expandable list-->
+    <dimen name="ingredients_expandable_header_size">30sp</dimen>
+    <dimen name="ingredients_expandable_marginStart">20dp</dimen>
+    <dimen name="ingredients_expandable_marginTop">10dp</dimen>
+    <dimen name="ingredients_expandable_indicator">320dp</dimen>
+
+    <dimen name="ingredient_dot_marginStart">20dp</dimen>
+    <dimen name="ingredient_textSize">22sp</dimen>
+    <dimen name="ingredient_name_marginStart">10dp</dimen>
+    <dimen name="ingredient_measurement_marginEnd">40dp</dimen>
+
+    <dimen name="step_line">20dp</dimen>
+
+</resources>

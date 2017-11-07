@@ -14,7 +14,7 @@ import com.niquid.personal.bakeme.utils.NetworkUtils;
 import timber.log.Timber;
 
 
-public class FetchRecipes implements LoaderManager.LoaderCallbacks<String> {
+public class FetchRecipeTask implements LoaderManager.LoaderCallbacks<String> {
 
     private static final String RECIPES_JSON = "recipes";
     private static final int FETCH_ONLINE_RECIPES = 101;
@@ -24,7 +24,7 @@ public class FetchRecipes implements LoaderManager.LoaderCallbacks<String> {
     private OnTaskFinished onTaskFinished;
     private String recipes;
 
-    public FetchRecipes(Context context, LoaderManager manager, OnTaskFinished onTaskFinished) {
+    public FetchRecipeTask(Context context, LoaderManager manager, OnTaskFinished onTaskFinished) {
         this.context = context;
         this.manager = manager;
         this.onTaskFinished = onTaskFinished;

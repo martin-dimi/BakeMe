@@ -9,7 +9,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="@dimen/appbar_height"
         android:fitsSystemWindows="true"
         >
 
@@ -36,27 +36,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginEnd="@dimen/appbar_text_margin_right"
+                android:layout_marginTop="@dimen/appbar_text_margin_top"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="cursive"
-                    android:text="@string/bake_with_me"
-                    android:textColor="#fff"
-                    android:textSize="35sp"
-                    android:textStyle="bold" />
+                    android:text="@string/appbar_title"
+                    style="@style/toolbarTitle"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="@string/best_of_android"
-                    android:textColor="#fff"
-                    android:textSize="20sp" />
+                    android:text="@string/appbar_subtitle"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/appbar_subtitle_size" />
             </LinearLayout>
 
             <android.support.v7.widget.Toolbar
@@ -73,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="20dp"
+        android:paddingBottom="@dimen/recipe_list_padding_bottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 

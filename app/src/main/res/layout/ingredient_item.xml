@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/dot"
+        style="@style/ingredient_item_text"
+        android:layout_marginStart="@dimen/ingredient_dot_marginStart"
+        android:text="@string/dot" />
+
+    <TextView
+        android:id="@+id/ingredient_name"
+        style="@style/ingredient_item_text"
+        android:layout_toEndOf="@id/dot"
+        android:layout_toStartOf="@id/ingredient_amount"
+        android:layout_marginStart="@dimen/ingredient_name_marginStart"
+        tools:text="Olive Oil" />
+
+    <TextView
+        android:id="@+id/ingredient_measurement"
+        style="@style/ingredient_item_text"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/ingredient_measurement_marginEnd"
+        tools:text="cups" />
+
+    <TextView
+        android:id="@+id/ingredient_amount"
+        style="@style/ingredient_item_text"
+        android:layout_toStartOf="@id/ingredient_measurement"
+        android:layout_marginEnd="10dp"
+        tools:text="8" />
+
+
+</RelativeLayout>

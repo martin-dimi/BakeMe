@@ -17,13 +17,17 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
-import timber.log.Timber;
+import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPE_KEY;
 
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHolder> {
 
-    private static final String INTENT_RECIPE = "recipe";
     private List<Recipe> recipes;
+    private RecipeOnClick recipeOnClick;
+
+    public interface RecipeOnClick{
+        void onClick(Recipe recipe);
+    }
 
     public RecipeAdapter(List<Recipe> recipes){
         this.recipes = recipes;
@@ -49,8 +53,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
         return recipes.size();
     }
 
-    public void swapRecipes(List<Recipe> recipes){
+    public void updateAdaptor(List<Recipe> recipes, RecipeOnClick recipeOnClick){
         this.recipes = recipes;
+        this.recipeOnClick = recipeOnClick;
         notifyDataSetChanged();
     }
 
@@ -85,10 +90,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
 
         @Override
         public void onClick(View view) {
-            Recipe current = recipes.get(getAdapterPosition());
-            Intent changeToRecipeActivity = new Intent(parentContext, RecipeActivity.class);
-            changeToRecipeActivity.putExtra(INTENT_RECIPE, Parcels.wrap(current));
-            parentContext.startActivity(changeToRecipeActivity);
+            if(recipeOnClick != null)
+                recipeOnClick.onClick(recipes.get(getAdapterPosition()));
         }
     }
 }
