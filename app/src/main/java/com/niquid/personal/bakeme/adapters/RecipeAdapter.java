@@ -1,7 +1,6 @@
-package com.niquid.personal.bakeme.activity;
+package com.niquid.personal.bakeme.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +12,7 @@ import com.niquid.personal.bakeme.R;
 import com.niquid.personal.bakeme.models.Recipe;
 import com.niquid.personal.bakeme.utils.RecipeUtils;
 
-import org.parceler.Parcels;
-
 import java.util.List;
-
-import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPE_KEY;
 
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHolder> {
@@ -29,8 +24,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
         void onClick(Recipe recipe);
     }
 
-    public RecipeAdapter(List<Recipe> recipes){
+    public RecipeAdapter(List<Recipe> recipes, RecipeOnClick recipeOnClick){
         this.recipes = recipes;
+        this.recipeOnClick = recipeOnClick;
     }
 
     @Override
@@ -53,9 +49,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
         return recipes.size();
     }
 
-    public void updateAdaptor(List<Recipe> recipes, RecipeOnClick recipeOnClick){
+    public void updateAdaptor(List<Recipe> recipes){
         this.recipes = recipes;
-        this.recipeOnClick = recipeOnClick;
         notifyDataSetChanged();
     }
 

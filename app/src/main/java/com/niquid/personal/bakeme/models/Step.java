@@ -2,8 +2,12 @@ package com.niquid.personal.bakeme.models;
 
 import org.parceler.Parcel;
 
+import timber.log.Timber;
+
 @Parcel
 public class Step {
+
+    private static final String FORMAT_MP4 = "mp4";
 
     private int id;
     private String shortDescription;
@@ -11,7 +15,7 @@ public class Step {
     private String videoURL;
     private String thumbnailURL;
 
-    public Step() { //For parcel
+    Step() { //For parcel
     }
 
     public Step(int id, String shortDescription, String description, String videoURL, String thumbnailURL) {
@@ -20,6 +24,27 @@ public class Step {
         this.description = description;
         this.videoURL = videoURL;
         this.thumbnailURL = thumbnailURL;
+    }
+
+    public boolean hasVideo(){
+        if(!videoURL.equals(""))
+            return true;
+        else if(isVideo(thumbnailURL))
+            return true;
+        return false;
+    }
+
+    public String getVideo(){
+        if(!videoURL.equals(""))
+            return videoURL;
+        else
+            return thumbnailURL;
+    }
+
+    private boolean isVideo(String url) {
+        int dotIndex = url.lastIndexOf(".");
+        return (dotIndex != -1 && dotIndex != 0)
+                && url.substring(dotIndex + 1).equals(FORMAT_MP4);
     }
 
     public int getId() {
@@ -48,10 +73,6 @@ public class Step {
 
     public String getVideoURL() {
         return videoURL;
-    }
-
-    public void setVideoURL(String videoURL) {
-        this.videoURL = videoURL;
     }
 
     public String getThumbnailURL() {

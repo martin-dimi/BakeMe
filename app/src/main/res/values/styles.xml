@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorPrimaryLight</item>
     </style>
 
     <!--Style for the toolbarText-->
@@ -39,7 +39,34 @@
         <item name="android:layout_width"> wrap_content </item>
         <item name="android:layout_height"> wrap_content </item>
         <item name="android:fontFamily"> @font/oleo_script_swash_caps </item>
-        <item name="android:textSize">@dimen/ingredient_textSize</item>
+        <item name="android:textSize">@dimen/expandable_child_textSize</item>
     </style>
 
+    <!--Style for the steps-->
+    <style name="step_holder">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/expandable_child_dot_marginStart</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="step_line">
+        <item name="android:layout_width">@dimen/step_line_width</item>
+        <item name="android:layout_height">@dimen/step_line_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@color/line</item>
+    </style>
+    <style name="step_dot">
+        <item name="android:layout_width">@dimen/step_dot_size</item>
+        <item name="android:layout_height">@dimen/step_dot_size</item>
+        <item name="android:src">@drawable/step</item>
+    </style>
+    <style name="step_text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/step_text_marginLeft</item>
+        <item name="android:layout_marginStart">@dimen/step_text_marginLeft</item>
+        <item name="android:textSize">@dimen/step_textSize</item>
+        <item name="android:textAlignment">textStart</item>
+
+    </style>
 </resources>

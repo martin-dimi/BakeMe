@@ -7,7 +7,10 @@
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
     app:cardElevation="5dp"
-    app:cardCornerRadius="5dp">
+    app:cardCornerRadius="5dp"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    >
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,7 +29,7 @@
             android:paddingLeft="@dimen/card_recipe_title_paddingHorizontal"
             android:paddingRight="@dimen/card_recipe_title_paddingHorizontal"
             android:paddingTop="@dimen/card_recipe_title_paddingTop"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryLight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -36,7 +39,7 @@
             android:id="@+id/cv_recipe_divider"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryLight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cv_recipe_title" />
@@ -45,7 +48,7 @@
             android:id="@+id/cv_recipe_divider2"
             android:layout_width="2dp"
             android:layout_height="0dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryLight"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.33"
@@ -56,7 +59,7 @@
             android:id="@+id/cv_recipe_divider3"
             android:layout_width="2dp"
             android:layout_height="0dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryLight"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.66"
@@ -69,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginTop="90dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryLight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

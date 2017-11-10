@@ -20,16 +20,33 @@
     <dimen name="card_recipe_primary_textSize">36sp</dimen>
 
     <!--Dimentions for the ingredient expandable list-->
-    <dimen name="ingredients_expandable_header_size">30sp</dimen>
-    <dimen name="ingredients_expandable_marginStart">20dp</dimen>
-    <dimen name="ingredients_expandable_marginTop">10dp</dimen>
-    <dimen name="ingredients_expandable_indicator">320dp</dimen>
+    <dimen name="expandable_header_size">30sp</dimen>
+    <dimen name="expandable_header_marginStart">20dp</dimen>
+    <dimen name="expandable_header_marginTop">10dp</dimen>
+    <dimen name="expandable_header_marginRight">8dp</dimen>
+    <dimen name="expandable_child_marginStart">20dp</dimen>
+    <dimen name="expandable_child_marginTop">10dp</dimen>
+    <dimen name="expandable_child_indicator">320dp</dimen>
+    <dimen name="expandable_child_dot_marginStart">20dp</dimen>
+    <dimen name="expandable_child_textSize">18sp</dimen>
+    <dimen name="expandable_child_name_marginStart">10dp</dimen>
+    <dimen name="expandable_child_measurement_marginEnd">40dp</dimen>
 
-    <dimen name="ingredient_dot_marginStart">20dp</dimen>
-    <dimen name="ingredient_textSize">22sp</dimen>
-    <dimen name="ingredient_name_marginStart">10dp</dimen>
-    <dimen name="ingredient_measurement_marginEnd">40dp</dimen>
+    <!--Dimentions for the stepList-->
+    <dimen name="step_helper_textSize">26sp</dimen>
+    <dimen name="step_dot_size">20dp</dimen>
+    <dimen name="step_line_width">4dp</dimen>
+    <dimen name="step_line_height">16dp</dimen>
+    <dimen name="step_textSize">20sp</dimen>
+    <dimen name="step_text_marginLeft">20dp</dimen>
 
-    <dimen name="step_line">20dp</dimen>
+    <!--Dimentions for stepsDetails-->
+    <dimen name="step_exoPlayer_height">250dp</dimen>
+    <dimen name="cooking_image_height">150dp</dimen>
+    <dimen name="cooking_image_width">130dp</dimen>
+    <dimen name="cooking_textSize">25sp</dimen>
+
+
+
 
 </resources>

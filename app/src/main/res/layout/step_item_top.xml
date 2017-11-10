@@ -7,40 +7,27 @@
 
     <LinearLayout
         android:id="@+id/step"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="4dp"
+        style="@style/step_holder"
         android:layout_marginTop="16dp"
-        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/dot"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-
-            android:src="@drawable/step"
+            style="@style/step_dot"
             tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/line"
-            android:layout_width="4dp"
-            android:layout_height="@dimen/step_line"
-            android:layout_gravity="center"
-            android:background="#0197EC"
-            tools:ignore="ContentDescription"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            style="@style/step_line"
+            tools:ignore="ContentDescription" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/step_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"
+        style="@style/step_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/step"
         app:layout_constraintTop_toTopOf="@+id/step"
         tools:text="Boil egg" />

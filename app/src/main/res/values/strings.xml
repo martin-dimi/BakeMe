@@ -2,6 +2,8 @@
     <string name="app_name">BakeMe</string>
     <string name="appbar_title">Bake with me</string>
     <string name="appbar_subtitle">best of android</string>
+    <string name="appbar_image_contentDescription">Appbar background</string>
+
 
 
     <!--Content description for level image-->
@@ -15,5 +17,14 @@
     <!--Ingredients descriptions-->
     <string name="ingredient_header">Ingredients</string>
     <string name="dot">►</string>
+
+
+    <!--Steps description-->
+    <string name="step_header">Steps</string>
     <string name="steps">Steps:</string>
+    <string name="step_thumbnail">Step thumbnail</string>
+    <string name="step_contentDescription">Step</string>
+    <string name="step_start_text">Start\nCooking</string>
+    <string name="step_start_description">Start cooking image</string>
+
 </resources>

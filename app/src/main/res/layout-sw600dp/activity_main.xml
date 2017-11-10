@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:baselineAligned="false">
 
     <fragment
         android:id="@+id/fragment_recipe_list"
@@ -13,11 +14,10 @@
         android:name="com.niquid.personal.bakeme.fragments.RecipesListFragment"
         android:layout_weight="1"/>
 
-    <fragment
+    <FrameLayout
         android:id="@+id/fragment_recipe_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:name="com.niquid.personal.bakeme.fragments.RecipeDetailFragment"/>
+        android:layout_weight="1" />
 
 </LinearLayout>

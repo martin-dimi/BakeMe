@@ -13,10 +13,11 @@ import com.niquid.personal.bakeme.utils.NetworkUtils;
 
 import timber.log.Timber;
 
+import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPE_KEY;
+
 
 public class FetchRecipeTask implements LoaderManager.LoaderCallbacks<String> {
 
-    private static final String RECIPES_JSON = "recipes";
     private static final int FETCH_ONLINE_RECIPES = 101;
 
     private final Context context;
@@ -48,9 +49,11 @@ public class FetchRecipeTask implements LoaderManager.LoaderCallbacks<String> {
                 super.onStartLoading();
 
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-                recipes = preferences.getString(RECIPES_JSON, "");
-                if(recipes.equals(""))
+                recipes = preferences.getString(RECIPE_KEY, "");
+                if(recipes.equals("")) {
+                    Timber.i("Fetching recipes online");
                     forceLoad();
+                }
                 else {
                     Timber.i("No need to fetch recipes");
                     deliverResult(recipes);
@@ -59,7 +62,6 @@ public class FetchRecipeTask implements LoaderManager.LoaderCallbacks<String> {
 
             @Override
             public String loadInBackground() {
-                Timber.i("Fetching recipes online");
                 recipes = NetworkUtils.getRecepiesJSON();
                 return recipes;
             }
