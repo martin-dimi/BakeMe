@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.niquid.personal.bakeme.utils.JSONUtils IMAGE" />
+      <entry_point TYPE="field" FQNAME="com.niquid.personal.bakeme.MainActivityTest mActivityTestRule" />
+      <entry_point TYPE="field" FQNAME="com.niquid.personal.bakeme.models.Recipe image" />
+      <entry_point TYPE="field" FQNAME="com.niquid.personal.bakeme.adapters.RecipeAdapter.RecipeHolder parentContext" />
+      <entry_point TYPE="field" FQNAME="com.niquid.personal.bakeme.StepDetailActivityTest mActivityTestRule" />
+    </entry_points>
+    <pattern value="com.niquid.personal.bakeme.widget.BakingShopWidget" />
+    <pattern value="com.niquid.personal.bakeme.widget.BakingWidgetService" />
+    <pattern value="com.niquid.personal.bakeme.models.Ingredient" method="setIngredient" />
+    <pattern value="com.niquid.personal.bakeme.models.Ingredient" method="setMeasure" />
+    <pattern value="com.niquid.personal.bakeme.models.Ingredient" method="setQuantity" />
+    <pattern value="com.niquid.personal.bakeme.models.Ingredient" method="Ingredient" />
+    <pattern value="com.niquid.personal.bakeme.models.Ingredient" />
+    <pattern value="com.niquid.personal.bakeme.utils.JSONUtils" />
+    <pattern value="com.niquid.personal.bakeme.activity.MainActivity" />
+    <pattern value="com.niquid.personal.bakeme.MainActivityTest" method="RecipeClickStartsDetailFragment" />
+    <pattern value="com.niquid.personal.bakeme.MainActivityTest" method="RecipeListFragmentContainsViews" />
+    <pattern value="com.niquid.personal.bakeme.MainActivityTest" method="MainActivityContainsFragments" />
+    <pattern value="com.niquid.personal.bakeme.MainActivityTest" method="init" />
+    <pattern value="com.niquid.personal.bakeme.MainActivityTest" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="setImage" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="setServings" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="setSteps" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="setIngredients" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="setName" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="setId" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="getId" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" method="Recipe" />
+    <pattern value="com.niquid.personal.bakeme.models.Recipe" />
+    <pattern value="com.niquid.personal.bakeme.adapters.RecipeAdapter.RecipeHolder" />
+    <pattern value="com.niquid.personal.bakeme.adapters.RecipeAdapter" />
+    <pattern value="com.niquid.personal.bakeme.activity.RecipeDetailActivity" />
+    <pattern value="com.niquid.personal.bakeme.fragments.RecipesListFragment" method="RecipesListFragment" />
+    <pattern value="com.niquid.personal.bakeme.fragments.RecipesListFragment" />
+    <pattern value="com.niquid.personal.bakeme.models.Step" method="setThumbnailURL" />
+    <pattern value="com.niquid.personal.bakeme.models.Step" method="setDescription" />
+    <pattern value="com.niquid.personal.bakeme.models.Step" method="setShortDescription" />
+    <pattern value="com.niquid.personal.bakeme.models.Step" method="setId" />
+    <pattern value="com.niquid.personal.bakeme.models.Step" method="getId" />
+    <pattern value="com.niquid.personal.bakeme.models.Step" method="Step" />
+    <pattern value="com.niquid.personal.bakeme.models.Step" />
+    <pattern value="com.niquid.personal.bakeme.activity.StepDetailActivity" />
+    <pattern value="com.niquid.personal.bakeme.StepDetailActivityTest" method="StepActivityContainsFragment" />
+    <pattern value="com.niquid.personal.bakeme.StepDetailActivityTest" />
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />

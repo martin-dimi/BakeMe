@@ -3,7 +3,6 @@ package com.niquid.personal.bakeme.fragments;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +18,7 @@ import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.LoopingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
@@ -33,9 +33,6 @@ import com.stepstone.stepper.StepperLayout;
 import com.stepstone.stepper.VerificationError;
 
 import org.parceler.Parcels;
-
-
-import timber.log.Timber;
 
 import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_KEY;
 
@@ -53,12 +50,12 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_step_detail, container, false);
+        setRetainInstance(true);
         exoPlayerView = rootView.findViewById(R.id.media_player);
         thumbnail = rootView.findViewById(R.id.media_thumbnail);
         description = rootView.findViewById(R.id.step_description);
-        if(savedInstanceState != null && savedInstanceState.getParcelable(STEP_KEY) != null)
+        if(savedInstanceState != null)
             step = Parcels.unwrap(savedInstanceState.getParcelable(STEP_KEY));
-
 
         return rootView;
     }
@@ -85,7 +82,7 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     }
 
     private void setVideo(String url){
-        thumbnail.setVisibility(View.GONE);
+        if(thumbnail != null) thumbnail.setVisibility(View.GONE);
         exoPlayerView.setVisibility(View.VISIBLE);
         setVideoPlayer(url);
     }
@@ -118,7 +115,8 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
         String userAgent = Util.getUserAgent(getContext(), "BakeMe");
         MediaSource mediaSource = new ExtractorMediaSource(uri, new DefaultDataSourceFactory(getContext(), userAgent),
                 new DefaultExtractorsFactory(), null, null);
-        exoPlayer.prepare(mediaSource);
+        LoopingMediaSource loopingMediaSource = new LoopingMediaSource(mediaSource);
+        exoPlayer.prepare(loopingMediaSource);
         exoPlayer.setPlayWhenReady(true);
     }
 
@@ -147,7 +145,6 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     public void onNextClicked(StepperLayout.OnNextClickedCallback callback) {
         releaseMedia();
         callback.goToNextStep();
-
     }
 
     @Override

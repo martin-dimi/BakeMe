@@ -18,7 +18,7 @@ import java.util.List;
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHolder> {
 
     private List<Recipe> recipes;
-    private RecipeOnClick recipeOnClick;
+    private final RecipeOnClick recipeOnClick;
 
     public interface RecipeOnClick{
         void onClick(Recipe recipe);

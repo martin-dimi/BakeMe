@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp">
+
+    <TextView
+        android:id="@+id/widget_ingredient_item_number"
+        style="@style/widget_shopping_list_item"
+        tools:text="3"
+        android:layout_marginEnd="8dp"/>
+
+    <TextView
+        android:id="@+id/widget_ingredient_item"
+        android:layout_toEndOf="@id/widget_ingredient_item_number"
+        style="@style/widget_shopping_list_item"
+        tools:text="Preheat oven to 300 degrees"/>
+
+</RelativeLayout>

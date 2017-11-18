@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/stepStepper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -39,7 +38,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/acme"
             android:gravity="center"
-            android:textSize="18sp"
+            android:textSize="@dimen/cooking_description_textSize"
             android:background="@color/white"
             tools:text="Whisk the graham cracker crumbs, 50 grams (1/4 cup) of sugar, and 1/2 teaspoon of salt together in a medium bowl. Pour the melted butter and 1 teaspoon of vanilla into the dry ingredients and stir together until evenly mixed." />
     </FrameLayout>

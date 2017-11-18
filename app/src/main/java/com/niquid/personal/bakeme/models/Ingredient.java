@@ -3,8 +3,10 @@ package com.niquid.personal.bakeme.models;
 
 import org.parceler.Parcel;
 
+import java.io.Serializable;
+
 @Parcel
-public class Ingredient {
+public class Ingredient implements Serializable {
 
     private int quantity;
     private String measure;

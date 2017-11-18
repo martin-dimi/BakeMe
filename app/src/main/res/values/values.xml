@@ -3,7 +3,7 @@
 
     <dimen name="recipe_list_padding_bottom">20dp</dimen>
 
-    <!--Dimentions for the collapsing toolbar-->
+    <!--Dimensions for the collapsing toolbar-->
     <dimen name="appbar_subtitle_size">20sp</dimen>
     <dimen name="appbar_height">250dp</dimen>
     <dimen name="appbar_text_margin_top">10dp</dimen>
@@ -11,42 +11,41 @@
     <dimen name="appbar_title_size">35sp</dimen>
 
 
-    <!--Dimentions for the cardView-->
+    <!--Dimensions for the cardView-->
     <dimen name="card_recipe_title_texiSize">46sp</dimen>
     <dimen name="card_recipe_title_paddingHorizontal">16dp</dimen>
     <dimen name="card_recipe_title_paddingTop">8dp</dimen>
     <dimen name="card_recipe_level_size">60dp</dimen>
-    <dimen name="card_recipe_helper_textSize">18sp</dimen>
     <dimen name="card_recipe_primary_textSize">36sp</dimen>
 
-    <!--Dimentions for the ingredient expandable list-->
+    <!--Dimensions for the ingredient expandable list-->
     <dimen name="expandable_header_size">30sp</dimen>
     <dimen name="expandable_header_marginStart">20dp</dimen>
     <dimen name="expandable_header_marginTop">10dp</dimen>
     <dimen name="expandable_header_marginRight">8dp</dimen>
-    <dimen name="expandable_child_marginStart">20dp</dimen>
-    <dimen name="expandable_child_marginTop">10dp</dimen>
     <dimen name="expandable_child_indicator">320dp</dimen>
     <dimen name="expandable_child_dot_marginStart">20dp</dimen>
     <dimen name="expandable_child_textSize">18sp</dimen>
     <dimen name="expandable_child_name_marginStart">10dp</dimen>
     <dimen name="expandable_child_measurement_marginEnd">40dp</dimen>
 
-    <!--Dimentions for the stepList-->
-    <dimen name="step_helper_textSize">26sp</dimen>
+    <!--Dimensions for the stepList-->
     <dimen name="step_dot_size">20dp</dimen>
     <dimen name="step_line_width">4dp</dimen>
     <dimen name="step_line_height">16dp</dimen>
     <dimen name="step_textSize">20sp</dimen>
     <dimen name="step_text_marginLeft">20dp</dimen>
 
-    <!--Dimentions for stepsDetails-->
+    <!--Dimensions for stepsDetails-->
     <dimen name="step_exoPlayer_height">250dp</dimen>
-    <dimen name="cooking_image_height">150dp</dimen>
+    <dimen name="cooking_image_height">100dp</dimen>
     <dimen name="cooking_image_width">130dp</dimen>
     <dimen name="cooking_textSize">25sp</dimen>
+    <dimen name="cooking_description_textSize">18sp</dimen>
 
-
-
+    <!--Dimensions for widget-->
+    <dimen name="widget_header_textSize">20sp</dimen>
+    <dimen name="widget_header_padding">8dp</dimen>
+    <dimen name="widget_shopping_list_item_textSize">16sp</dimen>
 
 </resources>

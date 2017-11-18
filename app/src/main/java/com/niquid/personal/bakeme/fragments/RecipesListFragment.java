@@ -22,6 +22,8 @@ import java.util.List;
 
 import timber.log.Timber;
 
+import static com.niquid.personal.bakeme.utils.RecipeUtils.IS_TWO_PANED_KEY;
+import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPES_KEY;
 import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPE_KEY;
 
 
@@ -30,6 +32,11 @@ public class RecipesListFragment extends Fragment implements RecipeAdapter.Recip
     private List<Recipe> recipes;
     private RecipeAdapter adapter;
     private boolean isTwoPane;
+    private CommunicateToActivity communicateToActivity;
+
+    public interface CommunicateToActivity{
+        void showDetailList();
+    }
 
     public RecipesListFragment(){
         Timber.plant(new Timber.DebugTree());
@@ -39,8 +46,14 @@ public class RecipesListFragment extends Fragment implements RecipeAdapter.Recip
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_recipe_list, container, false);
+
+        if(savedInstanceState != null){
+            recipes = Parcels.unwrap(savedInstanceState.getParcelable(RECIPES_KEY));
+            isTwoPane = savedInstanceState.getBoolean(IS_TWO_PANED_KEY);
+        }
+
         adapter = new RecipeAdapter(recipes, this);
-        RecyclerView recipeList = rootView.findViewById(R.id.recycler_view);
+        RecyclerView recipeList = rootView.findViewById(R.id.recipe_list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
         recipeList.setAdapter(adapter);
@@ -49,9 +62,10 @@ public class RecipesListFragment extends Fragment implements RecipeAdapter.Recip
         return rootView;
     }
 
-    public void setData(List<Recipe> recipes, boolean isTwoPane){
+    public void setData(List<Recipe> recipes, boolean isTwoPane, CommunicateToActivity communicateToActivity){
         this.recipes = recipes;
         this.isTwoPane = isTwoPane;
+        this.communicateToActivity = communicateToActivity;
         updateUI();
     }
 
@@ -66,12 +80,21 @@ public class RecipesListFragment extends Fragment implements RecipeAdapter.Recip
             changeToRecipeActivity.putExtra(RECIPE_KEY, Parcels.wrap(recipe));
             startActivity(changeToRecipeActivity);
         } else {
+            communicateToActivity.showDetailList();
             FragmentManager manager = getFragmentManager();
             RecipeDetailFragment recipeDetailFragment = new RecipeDetailFragment();
+            recipeDetailFragment.setTwoPaned(isTwoPane);
             recipeDetailFragment.setRecipe(recipe);
             manager.beginTransaction()
                     .replace(R.id.fragment_recipe_detail, recipeDetailFragment)
                     .commit();
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(RECIPES_KEY, Parcels.wrap(recipes));
+        outState.putBoolean(IS_TWO_PANED_KEY, isTwoPane);
     }
 }

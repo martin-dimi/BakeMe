@@ -92,7 +92,6 @@
             app:layout_constraintVertical_bias="0.25" />
 
         <TextView
-            android:id="@+id/cv_recipe_level_text"
             style="@style/cv_helperText"
             android:layout_width="48dp"
             android:text="@string/recipe_level"
@@ -114,7 +113,6 @@
             tools:text="12" />
 
         <TextView
-            android:id="@+id/cv_recipe_servings_text"
             style="@style/cv_helperText"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
             app:layout_constraintEnd_toEndOf="@+id/cv_recipe_servings"
@@ -133,7 +131,6 @@
             tools:text="8" />
 
         <TextView
-            android:id="@+id/cv_recipe_ingredients_text"
             style="@style/cv_helperText"
             app:layout_constraintBottom_toTopOf="@+id/cv_recipe_divider4"
             app:layout_constraintEnd_toEndOf="@+id/cv_recipe_ingredients"

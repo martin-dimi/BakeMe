@@ -8,8 +8,10 @@ import timber.log.Timber;
 public class RecipeUtils {
 
     public static final String RECIPE_KEY = "recipe";
+    public static final String RECIPES_KEY = "recipes";
     public static final String STEP_KEY = "step";
-    public static final String CURRENT_STEP_POSITION_KEY = "step_position";
+    public static final String IS_TWO_PANED_KEY = "two_paned";
+    public static final String INGREDIENTS_KEY = "ingredients";
 
 
     private static final int THRESHOLD_MEDIUM = 18;

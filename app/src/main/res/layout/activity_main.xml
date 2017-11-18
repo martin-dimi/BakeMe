@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:id="@+id/mainFrame"
-    android:layout_width="match_parent"
+<merge android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -11,5 +9,5 @@
         android:layout_height="match_parent"
         android:name="com.niquid.personal.bakeme.fragments.RecipesListFragment"/>
 
-</FrameLayout>
+</merge>
 

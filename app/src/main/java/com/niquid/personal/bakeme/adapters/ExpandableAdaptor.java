@@ -19,21 +19,27 @@ public class ExpandableAdaptor extends BaseExpandableListAdapter {
     private static final int STEPS = 1;
 
     private Recipe recipe;
-    private Context context;
+    private final Context context;
 
     public ExpandableAdaptor(Recipe recipe, Context context){
         this.recipe = recipe;
         this.context = context;
     }
 
+    public void changeRecipe(Recipe recipe){
+        this.recipe = recipe;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getGroupCount() {
+        if(recipe == null) return 0;
         return 2;
     }
 
     @Override
     public int getChildrenCount(int i) {
-
+        if(recipe == null) return 0;
         if(i==INGREDIENTS) return recipe.getIngredients().size();
         else if(i==STEPS) return recipe.getSteps().size();
         return 0;
@@ -41,6 +47,7 @@ public class ExpandableAdaptor extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int i) {
+        if(recipe == null) return 0;
         if(i==INGREDIENTS) return recipe.getIngredients();
         else if(i==STEPS) return recipe.getSteps();
         return null;
@@ -48,6 +55,7 @@ public class ExpandableAdaptor extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int parent, int child) {
+        if(recipe == null) return 0;
         if(parent==INGREDIENTS) return recipe.getIngredients().get(child);
         else if(parent==STEPS) return recipe.getSteps().get(child);
         return null;
@@ -65,7 +73,7 @@ public class ExpandableAdaptor extends BaseExpandableListAdapter {
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @SuppressLint("InflateParams")

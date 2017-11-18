@@ -21,8 +21,8 @@ public class FetchRecipeTask implements LoaderManager.LoaderCallbacks<String> {
     private static final int FETCH_ONLINE_RECIPES = 101;
 
     private final Context context;
-    private LoaderManager manager;
-    private OnTaskFinished onTaskFinished;
+    private final LoaderManager manager;
+    private final OnTaskFinished onTaskFinished;
     private String recipes;
 
     public FetchRecipeTask(Context context, LoaderManager manager, OnTaskFinished onTaskFinished) {

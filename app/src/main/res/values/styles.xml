@@ -67,6 +67,13 @@
         <item name="android:layout_marginStart">@dimen/step_text_marginLeft</item>
         <item name="android:textSize">@dimen/step_textSize</item>
         <item name="android:textAlignment">textStart</item>
+    </style>
 
+    <!--Style for the widget-->
+    <style name="widget_shopping_list_item">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/widget_shopping_list_item_textSize</item>
+        <item name="android:fontFamily">@font/acme</item>
     </style>
 </resources>

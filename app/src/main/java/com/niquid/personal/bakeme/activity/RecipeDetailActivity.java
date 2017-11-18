@@ -1,11 +1,10 @@
 package com.niquid.personal.bakeme.activity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.niquid.personal.bakeme.R;
+import com.niquid.personal.bakeme.fragments.RecipeDetailFragment;
 import com.niquid.personal.bakeme.models.Recipe;
 
 import org.parceler.Parcels;
@@ -20,10 +19,8 @@ public class RecipeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe);
 
         Recipe current = Parcels.unwrap(getIntent().getParcelableExtra(RECIPE_KEY));
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.fragment);
+        RecipeDetailFragment fragment = (RecipeDetailFragment) getFragmentManager().findFragmentById(R.id.fragment);
 
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(RECIPE_KEY, Parcels.wrap(current));
-        fragment.setArguments(bundle);
+        fragment.setRecipe(current);
     }
 }

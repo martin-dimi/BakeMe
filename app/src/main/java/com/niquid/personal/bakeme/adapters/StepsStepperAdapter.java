@@ -22,7 +22,7 @@ import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_KEY;
 
 public class StepsStepperAdapter extends AbstractFragmentStepAdapter{
 
-    private List<com.niquid.personal.bakeme.models.Step> steps;
+    private final List<com.niquid.personal.bakeme.models.Step> steps;
 
    public StepsStepperAdapter(FragmentManager manager, List<com.niquid.personal.bakeme.models.Step> steps, Context context){
        super(manager, context);
@@ -40,6 +40,7 @@ public class StepsStepperAdapter extends AbstractFragmentStepAdapter{
 
     @Override
     public int getCount() {
+        if(steps == null) return 0;
         return steps.size();
     }
 
@@ -52,8 +53,5 @@ public class StepsStepperAdapter extends AbstractFragmentStepAdapter{
                 .create();
     }
 
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        super.destroyItem(container, position, object);
-    }
+
 }
