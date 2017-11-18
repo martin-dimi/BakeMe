@@ -41,6 +41,7 @@ dependencies {
     compile 'com.google.android.exoplayer:exoplayer:r2.2.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
 
+    //noinspection GradleDependency
     androidTestCompile 'com.android.support:support-annotations:26.1.0'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
     androidTestCompile 'com.android.support.test.espresso:espresso-contrib:3.0.1'

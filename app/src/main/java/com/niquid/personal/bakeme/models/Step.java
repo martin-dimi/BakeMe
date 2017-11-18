@@ -2,6 +2,8 @@ package com.niquid.personal.bakeme.models;
 
 import org.parceler.Parcel;
 
+import timber.log.Timber;
+
 @Parcel
 public class Step {
 
@@ -25,7 +27,7 @@ public class Step {
     }
 
     public boolean hasVideo() {
-        return videoURL != null && isVideo(thumbnailURL);
+        return (videoURL != null && !videoURL.equals("")) || isVideo(thumbnailURL);
     }
 
     public String getVideo(){

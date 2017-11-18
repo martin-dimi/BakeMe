@@ -16,6 +16,7 @@ public class NetworkUtils {
     private static final String RECEPIES_PATH = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json";
     private static final URL RECEPIES_URL = getURL(RECEPIES_PATH);
 
+    @SuppressWarnings("SameParameterValue")
     private static URL getURL(String path){
         URL url = null;
 

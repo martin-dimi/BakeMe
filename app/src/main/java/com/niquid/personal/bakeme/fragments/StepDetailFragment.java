@@ -34,6 +34,8 @@ import com.stepstone.stepper.VerificationError;
 
 import org.parceler.Parcels;
 
+import timber.log.Timber;
+
 import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_KEY;
 
 
@@ -68,7 +70,6 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     private void setUI(){
         int orientation = getResources().getConfiguration().orientation;
         Boolean playVideo = step.hasVideo();
-
         if(orientation == Configuration.ORIENTATION_PORTRAIT) {
             if (playVideo)
                 setVideo(step.getVideo());
