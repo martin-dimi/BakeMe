@@ -107,6 +107,7 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     }
 
     private void setVideoPlayer(String url){
+        Timber.i("Setting up the video");
         TrackSelector trackSelector = new DefaultTrackSelector();
         LoadControl loadControl = new DefaultLoadControl();
         exoPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector, loadControl);

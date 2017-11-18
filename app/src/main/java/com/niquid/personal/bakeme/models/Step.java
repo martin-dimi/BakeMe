@@ -2,8 +2,6 @@ package com.niquid.personal.bakeme.models;
 
 import org.parceler.Parcel;
 
-import timber.log.Timber;
-
 @Parcel
 public class Step {
 
