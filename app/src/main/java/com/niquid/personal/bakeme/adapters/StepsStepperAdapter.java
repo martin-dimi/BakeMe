@@ -2,15 +2,12 @@ package com.niquid.personal.bakeme.adapters;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 
 
 import com.niquid.personal.bakeme.fragments.StepDetailFragment;
 import com.stepstone.stepper.Step;
 import com.stepstone.stepper.adapter.AbstractFragmentStepAdapter;
-import com.stepstone.stepper.viewmodel.StepViewModel;
 
 import org.parceler.Parcels;
 
@@ -42,15 +39,5 @@ public class StepsStepperAdapter extends AbstractFragmentStepAdapter{
         if(steps == null) return 0;
         return steps.size();
     }
-
-    @NonNull
-    @Override
-    public StepViewModel getViewModel(@IntRange(from = 0) int position) {
-        //Override this method to set Step title for the Tabs, not necessary for other stepper types
-        return new StepViewModel.Builder(context)
-                .setTitle("TITLE") //can be a CharSequence instead
-                .create();
-    }
-
 
 }

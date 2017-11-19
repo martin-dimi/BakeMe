@@ -1,5 +1,7 @@
 package com.niquid.personal.bakeme.models;
 
+import android.text.TextUtils;
+
 import org.parceler.Parcel;
 
 @Parcel
@@ -25,7 +27,7 @@ public class Step {
     }
 
     public boolean hasVideo() {
-        return (videoURL != null && !videoURL.equals("")) || isVideo(thumbnailURL);
+        return !TextUtils.isEmpty(videoURL) || isVideo(thumbnailURL);
     }
 
     public String getVideo(){
@@ -33,6 +35,7 @@ public class Step {
     }
 
     private boolean isVideo(String url) {
+        if(TextUtils.isEmpty(url)) return false;
         int dotIndex = url.lastIndexOf(".");
         return (dotIndex != -1 && dotIndex != 0)
                 && url.substring(dotIndex + 1).equals(FORMAT_MP4);

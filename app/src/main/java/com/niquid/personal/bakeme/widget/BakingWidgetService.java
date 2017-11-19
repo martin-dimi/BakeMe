@@ -13,12 +13,14 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import timber.log.Timber;
+
 import static com.niquid.personal.bakeme.utils.RecipeUtils.INGREDIENTS_KEY;
 
 public class BakingWidgetService extends RemoteViewsService {
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new ShoppingListRemoteViewFactory(this.getApplicationContext(), intent);
+        return new ShoppingListRemoteViewFactory(this.getApplicationContext());
     }
 }
 
@@ -26,15 +28,9 @@ class ShoppingListRemoteViewFactory implements RemoteViewsService.RemoteViewsFac
 
     private final Context mContext;
     private List<Ingredient> mIngredients;
-    private final Intent intent;
 
-    ShoppingListRemoteViewFactory(Context mContext, Intent intent) {
+    ShoppingListRemoteViewFactory(Context mContext) {
         this.mContext = mContext;
-        this.intent = intent;
-        if(intent != null) {
-            Bundle bundle = intent.getBundleExtra(INGREDIENTS_KEY);
-            mIngredients = Parcels.unwrap(bundle.getParcelable(INGREDIENTS_KEY));
-        }
     }
 
     @Override
@@ -44,10 +40,7 @@ class ShoppingListRemoteViewFactory implements RemoteViewsService.RemoteViewsFac
 
     @Override
     public void onDataSetChanged() {
-        if(intent != null) {
-            Bundle bundle = intent.getBundleExtra(INGREDIENTS_KEY);
-            mIngredients = Parcels.unwrap(bundle.getParcelable(INGREDIENTS_KEY));
-        }
+        mIngredients = BakingShopWidget.ingredients;
     }
 
     @Override
@@ -63,17 +56,12 @@ class ShoppingListRemoteViewFactory implements RemoteViewsService.RemoteViewsFac
 
     @Override
     public RemoteViews getViewAt(int i) {
-        try {
-            RemoteViews ingredientView = new RemoteViews(mContext.getPackageName(), R.layout.widget_shopping_list_item);
+        RemoteViews ingredientView = new RemoteViews(mContext.getPackageName(), R.layout.widget_shopping_list_item);
 
-            ingredientView.setTextViewText(R.id.widget_ingredient_item_number, String.valueOf(i + 1));
-            ingredientView.setTextViewText(R.id.widget_ingredient_item, mIngredients.get(i).getIngredient());
+        ingredientView.setTextViewText(R.id.widget_ingredient_item_number, String.valueOf(i + 1));
+        ingredientView.setTextViewText(R.id.widget_ingredient_item, mIngredients.get(i).getIngredient());
 
-            return ingredientView;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
+        return ingredientView;
     }
 
     @Override

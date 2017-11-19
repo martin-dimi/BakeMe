@@ -39,7 +39,6 @@ public class RecipesListFragment extends Fragment implements RecipeAdapter.Recip
     }
 
     public RecipesListFragment(){
-        Timber.plant(new Timber.DebugTree());
     }
 
     @Nullable

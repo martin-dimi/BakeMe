@@ -23,6 +23,8 @@ import static com.niquid.personal.bakeme.utils.RecipeUtils.INGREDIENTS_KEY;
  */
 public class BakingShopWidget extends AppWidgetProvider {
 
+    public static List<Ingredient> ingredients;
+
     private static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                         int appWidgetId, List<Ingredient> ingredients) {
 
@@ -32,14 +34,15 @@ public class BakingShopWidget extends AppWidgetProvider {
         PendingIntent startActivityPending = PendingIntent.getActivity(context, 0, startActivity, PendingIntent.FLAG_UPDATE_CURRENT);
         views.setOnClickPendingIntent(R.id.widget_header, startActivityPending);
 
+        BakingShopWidget.ingredients = ingredients;
+
         Intent intent = new Intent(context, BakingWidgetService.class);
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(INGREDIENTS_KEY, Parcels.wrap(ingredients));
-        intent.putExtra(INGREDIENTS_KEY, bundle);
         views.setRemoteAdapter(R.id.widget_shopping_list, intent);
         views.setEmptyView(R.id.widget_shopping_list, R.id.empty_view);
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_shopping_list);
+
     }
 
     @Override

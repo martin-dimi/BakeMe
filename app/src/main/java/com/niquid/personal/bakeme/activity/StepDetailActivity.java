@@ -2,6 +2,7 @@ package com.niquid.personal.bakeme.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.niquid.personal.bakeme.R;
 import com.niquid.personal.bakeme.adapters.StepsStepperAdapter;
@@ -24,6 +25,17 @@ public class StepDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_detail);
+
+        //Setting up the appbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            assert getSupportActionBar() != null;
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+
+        //Setting up the steps and the StepLayout
         List<Step> steps = Parcels.unwrap(getIntent().getParcelableExtra(STEP_KEY));
         int position = 0;
         if(savedInstanceState != null) {
@@ -33,8 +45,6 @@ public class StepDetailActivity extends AppCompatActivity {
         stepperLayout = findViewById(R.id.stepperLayout);
         StepsStepperAdapter adapter = new StepsStepperAdapter(getSupportFragmentManager(), steps, this);
         stepperLayout.setAdapter(adapter, position);
-
-
     }
 
 
@@ -44,5 +54,10 @@ public class StepDetailActivity extends AppCompatActivity {
         int position = stepperLayout.getCurrentStepPosition();
         System.out.println("SAVING " + position);
         outState.putInt(STEP_POSITION_KEY, position);
+    }
+
+    public void setTitle(String title){
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setTitle(title);
     }
 }

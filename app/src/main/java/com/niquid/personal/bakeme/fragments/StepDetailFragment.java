@@ -34,30 +34,38 @@ import com.stepstone.stepper.VerificationError;
 
 import org.parceler.Parcels;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import timber.log.Timber;
 
 import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_KEY;
+import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_VIDEO_POSITION;
 
 
 public class StepDetailFragment extends Fragment implements com.stepstone.stepper.BlockingStep{
 
-    private SimpleExoPlayerView exoPlayerView;
-    private ImageView thumbnail;
-    private SimpleExoPlayer exoPlayer;
-    private TextView description;
+    private SimpleExoPlayer mPlayer;
     private Step step;
+    private boolean playWhenReady = true;
+    private long playerPosition;
+    private int playerWindow;
+
+    @BindView(R.id.media_player) SimpleExoPlayerView mPlayerView;
+    @BindView(R.id.media_thumbnail)  ImageView thumbnail;
+    @BindView(R.id.step_description)  TextView description;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_step_detail, container, false);
+        ButterKnife.bind(this, rootView);
         setRetainInstance(true);
-        exoPlayerView = rootView.findViewById(R.id.media_player);
-        thumbnail = rootView.findViewById(R.id.media_thumbnail);
-        description = rootView.findViewById(R.id.step_description);
-        if(savedInstanceState != null)
+
+        if(savedInstanceState != null) {
             step = Parcels.unwrap(savedInstanceState.getParcelable(STEP_KEY));
+            playerPosition = savedInstanceState.getLong(STEP_VIDEO_POSITION);
+        }
 
         return rootView;
     }
@@ -78,18 +86,18 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
 
             description.setText(step.getDescription());
         } else {
-            setVideoPlayer(step.getVideoURL());
+            initPlayer(step.getVideoURL());
         }
     }
 
     private void setVideo(String url){
         if(thumbnail != null) thumbnail.setVisibility(View.GONE);
-        exoPlayerView.setVisibility(View.VISIBLE);
-        setVideoPlayer(url);
+        mPlayerView.setVisibility(View.VISIBLE);
+        initPlayer(url);
     }
 
     private void setImage(String url){
-        exoPlayerView.setVisibility(View.GONE);
+        mPlayerView.setVisibility(View.GONE);
         thumbnail.setVisibility(View.VISIBLE);
 
         Uri uri = Uri.parse(url);
@@ -106,59 +114,84 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
         });
     }
 
-    private void setVideoPlayer(String url){
-        Timber.i("Setting up the video");
-        TrackSelector trackSelector = new DefaultTrackSelector();
-        LoadControl loadControl = new DefaultLoadControl();
-        exoPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector, loadControl);
-        exoPlayerView.setPlayer(exoPlayer);
+    private void initPlayer(String url){
+        //Setting up the player
+        if(mPlayer == null) {
+            Timber.i("Setting up the video");
+            TrackSelector trackSelector = new DefaultTrackSelector();
+            LoadControl loadControl = new DefaultLoadControl();
+            mPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector, loadControl);
+            mPlayerView.setPlayer(mPlayer);
+            mPlayer.seekTo(playerWindow, playerPosition);
+        }
 
+        //Setting up the media
         Uri uri = Uri.parse(url);
         String userAgent = Util.getUserAgent(getContext(), "BakeMe");
         MediaSource mediaSource = new ExtractorMediaSource(uri, new DefaultDataSourceFactory(getContext(), userAgent),
                 new DefaultExtractorsFactory(), null, null);
         LoopingMediaSource loopingMediaSource = new LoopingMediaSource(mediaSource);
-        exoPlayer.prepare(loopingMediaSource);
-        exoPlayer.setPlayWhenReady(true);
+        mPlayer.prepare(loopingMediaSource);
+        mPlayer.setPlayWhenReady(playWhenReady);
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(STEP_KEY, Parcels.wrap(step));
+        outState.putLong(STEP_VIDEO_POSITION, playerPosition);
     }
 
-    private void releaseMedia(){
-        if(exoPlayer != null) {
-            exoPlayer.stop();
-            exoPlayer.release();
-            exoPlayer = null;
+    private void releasePlayer(){
+        if(mPlayer != null) {
+            playerPosition = mPlayer.getCurrentPosition();
+            playerWindow = mPlayer.getCurrentWindowIndex();
+            playWhenReady = mPlayer.getPlayWhenReady();
+
+            mPlayer.release();
+            mPlayer = null;
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mPlayer == null && this.isVisible()){
+            Timber.i("Setting up the Player from onResume");
+            setUI();
+        }
+
+    }
 
     @Override
     public void onPause() {
         super.onPause();
-        releaseMedia();
+        releasePlayer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        releasePlayer();
     }
 
     @Override
     public void onNextClicked(StepperLayout.OnNextClickedCallback callback) {
-        releaseMedia();
+        releasePlayer();
         callback.goToNextStep();
     }
 
     @Override
     public void onCompleteClicked(StepperLayout.OnCompleteClickedCallback callback) {
-        releaseMedia();
+        releasePlayer();
         getActivity().finish();
         callback.complete();
     }
 
     @Override
     public void onBackClicked(StepperLayout.OnBackClickedCallback callback) {
-        releaseMedia();
+        releasePlayer();
         callback.goToPrevStep();
     }
 
@@ -171,8 +204,10 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
 
     @Override
     public void onSelected() {
-        setUI();
-        //Do nothing on selected
+        if(mPlayer == null){
+            Timber.i("Setting up the Player from onSelect");
+            setUI();
+        }
     }
 
     @Override
