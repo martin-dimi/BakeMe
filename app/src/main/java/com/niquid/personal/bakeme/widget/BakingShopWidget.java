@@ -5,18 +5,13 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.RemoteViews;
 
 import com.niquid.personal.bakeme.R;
 import com.niquid.personal.bakeme.activity.MainActivity;
 import com.niquid.personal.bakeme.models.Ingredient;
 
-import org.parceler.Parcels;
-
 import java.util.List;
-
-import static com.niquid.personal.bakeme.utils.RecipeUtils.INGREDIENTS_KEY;
 
 /**
  * Implementation of App Widget functionality.

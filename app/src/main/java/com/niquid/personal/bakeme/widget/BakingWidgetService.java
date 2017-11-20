@@ -2,20 +2,13 @@ package com.niquid.personal.bakeme.widget;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.niquid.personal.bakeme.R;
 import com.niquid.personal.bakeme.models.Ingredient;
 
-import org.parceler.Parcels;
-
 import java.util.List;
-
-import timber.log.Timber;
-
-import static com.niquid.personal.bakeme.utils.RecipeUtils.INGREDIENTS_KEY;
 
 public class BakingWidgetService extends RemoteViewsService {
     @Override

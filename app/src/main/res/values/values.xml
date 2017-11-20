@@ -19,11 +19,6 @@
     <dimen name="card_recipe_primary_textSize">36sp</dimen>
 
     <!--Dimensions for the ingredient expandable list-->
-    <dimen name="expandable_header_size">30sp</dimen>
-    <dimen name="expandable_header_marginStart">20dp</dimen>
-    <dimen name="expandable_header_marginTop">10dp</dimen>
-    <dimen name="expandable_header_marginRight">8dp</dimen>
-    <dimen name="expandable_child_indicator">320dp</dimen>
     <dimen name="expandable_child_dot_marginStart">20dp</dimen>
     <dimen name="expandable_child_textSize">18sp</dimen>
     <dimen name="expandable_child_name_marginStart">10dp</dimen>
@@ -38,9 +33,6 @@
 
     <!--Dimensions for stepsDetails-->
     <dimen name="step_exoPlayer_height">250dp</dimen>
-    <dimen name="cooking_image_height">100dp</dimen>
-    <dimen name="cooking_image_width">130dp</dimen>
-    <dimen name="cooking_textSize">25sp</dimen>
     <dimen name="cooking_description_textSize">18sp</dimen>
 
     <!--Dimensions for widget-->

@@ -52,7 +52,12 @@ public class JSONUtils {
                 List<Ingredient> ingredients = getIngredients(rec);
                 List<Step> steps = getSteps(rec);
                 int servings = rec.getInt(SERVINGS);
-                String image = "";
+                String image;
+                try {
+                    image = rec.getString(IMAGE);
+                }catch (Exception e){
+                    image = "";
+                }
 
                 Recipe recipe = new Recipe(id, name, ingredients, steps, servings, image);
                 recipes.add(recipe);

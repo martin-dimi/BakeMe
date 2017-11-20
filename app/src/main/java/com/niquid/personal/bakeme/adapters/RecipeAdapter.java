@@ -1,6 +1,7 @@
 package com.niquid.personal.bakeme.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,13 @@ import android.widget.TextView;
 import com.niquid.personal.bakeme.R;
 import com.niquid.personal.bakeme.models.Recipe;
 import com.niquid.personal.bakeme.utils.RecipeUtils;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHolder> {
@@ -56,21 +62,19 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
 
     class RecipeHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private final Context parentContext;
-        private final TextView title;
-        private final ImageView level;
-        private final TextView servings;
-        private final TextView ingredients;
+        @BindView(R.id.cv_recipe_title)  TextView title;
+        @BindView(R.id.cv_recipe_level)  ImageView level;
+        @BindView(R.id.cv_recipe_servings)  TextView servings;
+        @BindView(R.id.cv_recipe_ingredients)  TextView ingredients;
+        @BindView(R.id.cv_image)  ImageView header;
+        private final Context context;
 
         RecipeHolder(View itemView, Context context) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
 
-            parentContext   = context;
-            title           = itemView.findViewById(R.id.cv_recipe_title);
-            level           = itemView.findViewById(R.id.cv_recipe_level);
-            servings        = itemView.findViewById(R.id.cv_recipe_servings);
-            ingredients     = itemView.findViewById(R.id.cv_recipe_ingredients);
+            this.context    = context;
         }
 
         void setRecipe(Recipe recipe){
@@ -81,6 +85,21 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
             level.setImageResource(RecipeUtils.getDifficulty(recipe));
             servings.setText(servingsNum);
             ingredients.setText(ingredNum);
+
+            if(RecipeUtils.hasImage(recipe)){
+                Uri uri = Uri.parse(recipe.getImage());
+                Picasso.with(context).load(uri).placeholder(R.drawable.loading).into(header, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError() {
+                        header.setVisibility(View.GONE);
+                    }
+                });
+            }
         }
 
         @Override

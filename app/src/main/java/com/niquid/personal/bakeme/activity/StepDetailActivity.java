@@ -56,8 +56,4 @@ public class StepDetailActivity extends AppCompatActivity {
         outState.putInt(STEP_POSITION_KEY, position);
     }
 
-    public void setTitle(String title){
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setTitle(title);
-    }
 }

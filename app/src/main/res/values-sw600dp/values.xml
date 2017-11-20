@@ -3,9 +3,6 @@
 
     <!--Dimentions for stepsDetails-->
     <dimen name="step_exoPlayer_height">400dp</dimen>
-    <dimen name="cooking_image_height">100dp</dimen>
-    <dimen name="cooking_image_width">130dp</dimen>
-    <dimen name="cooking_textSize">30sp</dimen>
     <dimen name="cooking_description_textSize">25sp</dimen>
 
 </resources>

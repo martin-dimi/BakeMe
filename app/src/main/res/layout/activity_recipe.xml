@@ -17,9 +17,9 @@
         app:titleTextAppearance="@style/toolbarTitle" />
 
     <fragment
-        android:id="@+id/fragment"
-        android:layout_width="match_parent"
+        android:id="@+id/recipe_details"
         android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:name="com.niquid.personal.bakeme.fragments.RecipeDetailFragment"/>
 
 </LinearLayout>

@@ -1,6 +1,5 @@
 package com.niquid.personal.bakeme.fragments;
 
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -50,10 +49,16 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     private long playerPosition;
     private int playerWindow;
 
-    @BindView(R.id.media_player) SimpleExoPlayerView mPlayerView;
-    @BindView(R.id.media_thumbnail)  ImageView thumbnail;
-    @BindView(R.id.step_description)  TextView description;
+    @BindView(R.id.media_player)
+    SimpleExoPlayerView mPlayerView;
 
+    @Nullable
+    @BindView(R.id.media_thumbnail)
+    ImageView thumbnail;
+
+    @Nullable
+    @BindView(R.id.step_description)
+    TextView description;
 
     @Nullable
     @Override
@@ -62,9 +67,14 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
         ButterKnife.bind(this, rootView);
         setRetainInstance(true);
 
+        thumbnail = rootView.findViewById(R.id.media_thumbnail);
+        description = rootView.findViewById(R.id.step_description);
+
         if(savedInstanceState != null) {
             step = Parcels.unwrap(savedInstanceState.getParcelable(STEP_KEY));
             playerPosition = savedInstanceState.getLong(STEP_VIDEO_POSITION);
+            Timber.d("CLASS: " + getActivity().getLocalClassName());
+            setUI();
         }
 
         return rootView;
@@ -76,9 +86,9 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     }
 
     private void setUI(){
-        int orientation = getResources().getConfiguration().orientation;
         Boolean playVideo = step.hasVideo();
-        if(orientation == Configuration.ORIENTATION_PORTRAIT) {
+        //Checks if it is port mode
+        if(description != null) {
             if (playVideo)
                 setVideo(step.getVideo());
             else
@@ -98,7 +108,8 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
 
     private void setImage(String url){
         mPlayerView.setVisibility(View.GONE);
-        thumbnail.setVisibility(View.VISIBLE);
+        if(thumbnail != null)
+             thumbnail.setVisibility(View.VISIBLE);
 
         Uri uri = Uri.parse(url);
         Picasso.with(getContext()).load(uri).placeholder(R.drawable.loading).into(thumbnail, new Callback() {
@@ -173,6 +184,12 @@ public class StepDetailFragment extends Fragment implements com.stepstone.steppe
     @Override
     public void onStop() {
         super.onStop();
+        releasePlayer();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
         releasePlayer();
     }
 

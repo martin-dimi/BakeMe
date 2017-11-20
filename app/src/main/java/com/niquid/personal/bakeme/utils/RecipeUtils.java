@@ -7,10 +7,8 @@ import timber.log.Timber;
 
 public class RecipeUtils {
 
-    public static final String IS_TWO_PANED_KEY = "two_paned";
     public static final String RECIPE_KEY = "recipe";
     public static final String RECIPES_KEY = "recipes";
-    public static final String INGREDIENTS_KEY = "ingredients";
     public static final String STEP_KEY = "step";
     public static final String STEP_VIDEO_POSITION = "video_pos";
 
@@ -31,6 +29,10 @@ public class RecipeUtils {
         if(difficulty > THRESHOLD_HARD) return R.drawable.hard;
         else if(difficulty > THRESHOLD_MEDIUM) return R.drawable.medium;
         else return R.drawable.easy;
+    }
+
+    public static boolean hasImage(Recipe recipe){
+        return !recipe.getImage().equals("");
     }
 
 

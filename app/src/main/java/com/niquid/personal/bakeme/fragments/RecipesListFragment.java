@@ -1,7 +1,6 @@
 package com.niquid.personal.bakeme.fragments;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,23 +19,14 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
-import timber.log.Timber;
-
-import static com.niquid.personal.bakeme.utils.RecipeUtils.IS_TWO_PANED_KEY;
 import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPES_KEY;
 import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPE_KEY;
 
 
 public class RecipesListFragment extends Fragment implements RecipeAdapter.RecipeOnClick{
 
-    private List<Recipe> recipes;
-    private RecipeAdapter adapter;
-    private boolean isTwoPane;
-    private CommunicateToActivity communicateToActivity;
-
-    public interface CommunicateToActivity{
-        void showDetailList();
-    }
+    private List<Recipe> mRecipes;
+    private RecipeAdapter mAdaptor;
 
     public RecipesListFragment(){
     }
@@ -47,53 +37,34 @@ public class RecipesListFragment extends Fragment implements RecipeAdapter.Recip
         View rootView = inflater.inflate(R.layout.fragment_recipe_list, container, false);
 
         if(savedInstanceState != null){
-            recipes = Parcels.unwrap(savedInstanceState.getParcelable(RECIPES_KEY));
-            isTwoPane = savedInstanceState.getBoolean(IS_TWO_PANED_KEY);
+            mRecipes = Parcels.unwrap(savedInstanceState.getParcelable(RECIPES_KEY));
         }
 
-        adapter = new RecipeAdapter(recipes, this);
+        mAdaptor = new RecipeAdapter(mRecipes, this);
         RecyclerView recipeList = rootView.findViewById(R.id.recipe_list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
-        recipeList.setAdapter(adapter);
+        recipeList.setAdapter(mAdaptor);
         recipeList.setLayoutManager(layoutManager);
 
         return rootView;
     }
 
-    public void setData(List<Recipe> recipes, boolean isTwoPane, CommunicateToActivity communicateToActivity){
-        this.recipes = recipes;
-        this.isTwoPane = isTwoPane;
-        this.communicateToActivity = communicateToActivity;
-        updateUI();
-    }
-
-    private void updateUI(){
-        adapter.updateAdaptor(recipes);
+    public void setRecipes(List<Recipe> mRecipes){
+        this.mRecipes = mRecipes;
+        mAdaptor.updateAdaptor(mRecipes);
     }
 
     @Override
     public void onClick(Recipe recipe) {
-        if (!isTwoPane) {
             Intent changeToRecipeActivity = new Intent(getContext(), RecipeDetailActivity.class);
             changeToRecipeActivity.putExtra(RECIPE_KEY, Parcels.wrap(recipe));
             startActivity(changeToRecipeActivity);
-        } else {
-            communicateToActivity.showDetailList();
-            FragmentManager manager = getFragmentManager();
-            RecipeDetailFragment recipeDetailFragment = new RecipeDetailFragment();
-            recipeDetailFragment.setTwoPaned(isTwoPane);
-            recipeDetailFragment.setRecipe(recipe);
-            manager.beginTransaction()
-                    .replace(R.id.fragment_recipe_detail, recipeDetailFragment)
-                    .commit();
-        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(RECIPES_KEY, Parcels.wrap(recipes));
-        outState.putBoolean(IS_TWO_PANED_KEY, isTwoPane);
+        outState.putParcelable(RECIPES_KEY, Parcels.wrap(mRecipes));
     }
 }

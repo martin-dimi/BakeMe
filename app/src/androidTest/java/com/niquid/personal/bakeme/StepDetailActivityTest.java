@@ -38,8 +38,8 @@ public class StepDetailActivityTest {
         //checks whether the fragment is initialized successfully
         Intent fromPrevious = new Intent();
         List<Step> steps = new ArrayList<>();
-        steps.add(new Step(0, "a", "b", null, null));
-        steps.add(new Step(1, "b", "c", null, null));
+        steps.add(new Step(0, "a", "b", "", ""));
+        steps.add(new Step(1, "b", "c", "", ""));
         fromPrevious.putExtra(STEP_KEY, Parcels.wrap(steps));
 
         mActivityTestRule.launchActivity(fromPrevious);

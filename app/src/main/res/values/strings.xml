@@ -1,9 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <string name="app_name">BakeMe</string>
     <string name="appbar_title">Bake with me</string>
     <string name="appbar_subtitle">best of android</string>
     <string name="appbar_image_contentDescription">Appbar background</string>
-
 
     <!--Content description for level image-->
     <string name="difficulty">Recipe difficulty level</string>
@@ -14,19 +14,15 @@
     <string name="recipe_level">Level</string>
 
     <!--Ingredients descriptions-->
-    <string name="ingredient_header">Ingredients</string>
     <string name="dot">►</string>
 
-
     <!--Steps description-->
-    <string name="step_header">Steps</string>
+    <string name="step_header" tools:keep="@string/step_header">Steps</string>
     <string name="step_thumbnail">Step thumbnail</string>
     <string name="step_contentDescription">Step</string>
-    <string name="step_start_cooking_text">Start\nCooking</string>
-    <string name="step_add_cart_text">Add to\nCart</string>
-    <string name="step_start_description">Start cooking image</string>
 
     <!--Widget-->
+    <string name="widget_menu_title">Add</string>
     <string name="widget_header">BakeMe Shopping List</string>
     <string name="widget_toast">Ingredients added to list!</string>
     <string name="widget_empty_list">List is empty</string>

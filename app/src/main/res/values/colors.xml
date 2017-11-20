@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#795548</color>
     <color name="colorPrimaryDark">#5D4037</color>
-    <color name="colorPrimaryLight">#9b7466</color>
+    <color name="colorPrimaryLight">#967e76</color>
     <color name="cardBackground">#D7CCC8</color>
 
     <color name="line">#0197EC</color>

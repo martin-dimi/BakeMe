@@ -17,23 +17,36 @@
         android:layout_height="wrap_content"
         android:background="@color/cardBackground">
 
-        <TextView
-            android:id="@+id/cv_recipe_title"
+        <FrameLayout
+            android:id="@+id/cv_header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/card_recipe_title_texiSize"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:fontFamily="cursive"
-            android:gravity="center"
-            android:paddingLeft="@dimen/card_recipe_title_paddingHorizontal"
-            android:paddingRight="@dimen/card_recipe_title_paddingHorizontal"
-            android:paddingTop="@dimen/card_recipe_title_paddingTop"
-            android:background="@color/colorPrimaryLight"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Nutella Pie" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cv_recipe_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/card_recipe_title_texiSize"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:fontFamily="cursive"
+                android:gravity="center"
+                android:paddingLeft="@dimen/card_recipe_title_paddingHorizontal"
+                android:paddingRight="@dimen/card_recipe_title_paddingHorizontal"
+                android:paddingTop="@dimen/card_recipe_title_paddingTop"
+                android:background="@color/colorPrimaryLight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Nutella Pie" />
+
+            <ImageView
+                android:id="@+id/cv_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </FrameLayout>
+
 
         <View
             android:id="@+id/cv_recipe_divider"
@@ -42,7 +55,7 @@
             android:background="@color/colorPrimaryLight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_title" />
+            app:layout_constraintTop_toBottomOf="@+id/cv_header" />
 
         <View
             android:id="@+id/cv_recipe_divider2"
@@ -76,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv_recipe_title" />
+            app:layout_constraintTop_toBottomOf="@+id/cv_header" />
 
 
         <ImageView

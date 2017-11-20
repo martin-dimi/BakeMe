@@ -70,4 +70,8 @@ public class Recipe {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getImage() {
+        return image;
+    }
 }
