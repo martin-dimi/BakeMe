@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-        android:id="@+id/media_player"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/step_exoPlayer_height"
-        android:layout_margin="3dp"
-        app:resize_mode="fixed_width"
-        app:use_controller="false"
-        />
-
-    <ImageView
-        android:id="@+id/media_thumbnail"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/step_exoPlayer_height"
-        android:visibility="gone"
-        android:contentDescription="@string/step_thumbnail" />
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:padding="10dp"
-        android:elevation="5dp"
-        android:background="@color/colorPrimaryLight"
-        >
-        <TextView
-            android:id="@+id/step_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/acme"
-            android:gravity="center"
-            android:textSize="@dimen/cooking_description_textSize"
-            android:background="@color/white"
-            tools:text="Whisk the graham cracker crumbs, 50 grams (1/4 cup) of sugar, and 1/2 teaspoon of salt together in a medium bowl. Pour the melted butter and 1 teaspoon of vanilla into the dry ingredients and stir together until evenly mixed." />
-    </FrameLayout>
+        android:orientation="vertical">
 
-</LinearLayout>
+        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+            android:id="@+id/media_player"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/step_exoPlayer_height"
+            android:layout_margin="3dp"
+            app:resize_mode="fixed_width"
+            app:use_controller="false"
+            />
+
+        <ImageView
+            android:id="@+id/media_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/step_exoPlayer_height"
+            android:visibility="gone"
+            android:contentDescription="@string/step_thumbnail" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:padding="10dp"
+            android:elevation="5dp"
+            android:background="@color/colorPrimaryLight"
+            >
+            <TextView
+                android:id="@+id/step_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/acme"
+                android:gravity="center"
+                android:textSize="@dimen/cooking_description_textSize"
+                android:background="@color/white"
+                tools:text="Whisk the graham cracker crumbs, 50 grams (1/4 cup) of sugar, and 1/2 teaspoon of salt together in a medium bowl. Pour the melted butter and 1 teaspoon of vanilla into the dry ingredients and stir together until evenly mixed." />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+

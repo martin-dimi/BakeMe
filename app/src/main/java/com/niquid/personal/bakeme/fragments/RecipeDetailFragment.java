@@ -98,7 +98,7 @@ public class RecipeDetailFragment extends Fragment{
 
         //Setting up the ingredient list
         ListView ingredientList = rootView.findViewById(R.id.ingredient_list);
-        ingredientAdapter = new IngredientAdapter();
+        if(ingredientAdapter == null) ingredientAdapter = new IngredientAdapter();
         ingredientList.setAdapter(ingredientAdapter);
 
         return rootView;

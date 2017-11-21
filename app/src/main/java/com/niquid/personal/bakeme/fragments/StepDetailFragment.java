@@ -41,6 +41,7 @@ import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_KEY;
 import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_VIDEO_POSITION;
 
 
+@SuppressWarnings("WeakerAccess")
 public class StepDetailFragment extends Fragment implements com.stepstone.stepper.BlockingStep{
 
     private SimpleExoPlayer mPlayer;

@@ -1,7 +1,6 @@
 package com.niquid.personal.bakeme.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,13 +73,11 @@ public class StepAdaptor extends RecyclerView.Adapter<StepAdaptor.StepHolder> {
     public void onBindViewHolder(StepHolder holder, int position) {
         Step current = steps.get(position);
         holder.setArgs(current);
-        if(position == selected) holder.select();
     }
 
     @Override
     public int getItemCount() {
-        if(steps == null) return 0;
-        return steps.size();
+        return steps == null ? 0 : steps.size();
     }
 
     class StepHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -104,10 +101,6 @@ public class StepAdaptor extends RecyclerView.Adapter<StepAdaptor.StepHolder> {
             selected = position;
             notifyItemChanged(selected);
             stepOnClick.onClick(position);
-        }
-
-        void select(){
-            description.setTextColor(Color.WHITE);
         }
     }
 

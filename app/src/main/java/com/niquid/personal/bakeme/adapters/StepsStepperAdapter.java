@@ -36,8 +36,7 @@ public class StepsStepperAdapter extends AbstractFragmentStepAdapter{
 
     @Override
     public int getCount() {
-        if(steps == null) return 0;
-        return steps.size();
+        return steps == null ? 0 : steps.size();
     }
 
 }

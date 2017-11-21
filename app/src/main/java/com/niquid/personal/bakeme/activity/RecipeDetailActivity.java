@@ -15,7 +15,6 @@ import com.niquid.personal.bakeme.fragments.StepDetailFragment;
 import com.niquid.personal.bakeme.models.Recipe;
 
 import org.parceler.Parcels;
-
 import timber.log.Timber;
 
 import static com.niquid.personal.bakeme.utils.RecipeUtils.RECIPE_KEY;
@@ -23,7 +22,7 @@ import static com.niquid.personal.bakeme.utils.RecipeUtils.STEP_KEY;
 
 public class RecipeDetailActivity extends AppCompatActivity implements RecipeDetailFragment.OnItemSelectedListener {
 
-    private static final String STEP_DETAIL;
+    private static final String STEP_DETAIL = "step_detail";
 
     private StepDetailFragment stepDetailFragment;
     private boolean mIsTwoPane = false;
