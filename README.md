@@ -29,7 +29,7 @@ adding accessibility features, allowing for localization, adding a widget, and a
 - [x] Widget displays ingredient list for desired recipe.
 
 ## Screenshots
-<img src="images/Menu.png" height="444" width="250"> <img src="images/RecipeDetail.png" height="444" width="250"> <img src="images/StepDetail.png" height="444" width="250"> <img src="images/Widget.png" height="444" width="250"> 
+<img src="images/Menu.png" height="400" width="200"> <img src="images/RecipeDetail.png" height="400" width="200"> <img src="images/StepDetail.png" height="400" width="200"> <img src="images/Widget.png" height="400" width="200"> 
 
 ## Sources
 * [Stepstone stepper](https://github.com/stepstone-tech/android-material-stepper)  
