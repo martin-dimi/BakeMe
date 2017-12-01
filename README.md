@@ -28,6 +28,11 @@ adding accessibility features, allowing for localization, adding a widget, and a
 - [x] Application has a companion homescreen widget.
 - [x] Widget displays ingredient list for desired recipe.
 
+## Screenshots
+<img src="images/menu.png" height="444" width="250"> 
+<img src="images/menu.png" height="444" width="250"> 
+<img src="images/menu.png" height="444" width="250">
+
 ## Sources
 * [Stepstone stepper](https://github.com/stepstone-tech/android-material-stepper)  
 * [Timber](https://github.com/JakeWharton/timber)
