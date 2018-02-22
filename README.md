@@ -1,4 +1,5 @@
 # BakeMe
+[![Crates.io](https://img.shields.io/crates/l/rustc-serialize.svg?maxAge=2592000)]()
 
 ## Introduction
 App for Android Developer Nanodegree program. Android Baking App that will allow Udacity’s resident baker-in-chief,  
