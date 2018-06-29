@@ -1,14 +1,9 @@
 # BakeMe
 [![Crates.io](https://img.shields.io/crates/l/rustc-serialize.svg?maxAge=2592000)]()
 
-## Introduction
-App for Android Developer Nanodegree program. Android Baking App that will allow Udacity’s resident baker-in-chief,  
-Miriam, to share her recipes with the world. You will create an app that will allow a user to select a recipe and see  
-video-guided steps for how to complete it.
-
 ## Overview
-Productionizing an app, taking it from a functional state to a production-ready state. Involve finding and handling error cases,  
-adding accessibility features, allowing for localization, adding a widget, and adding a library. 
+App for Android Developer Nanodegree program that will allow Udacity’s resident baker-in-chief,  
+Miriam, to share her recipes with the world. Incorporating media loading, verifying user interfaces with UI tests, integrated third party libraries and provided a complete UX with home screen widget.
 
 ## Rubric
 ### General App Usage
